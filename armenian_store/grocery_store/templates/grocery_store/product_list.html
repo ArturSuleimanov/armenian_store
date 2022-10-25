@@ -1,0 +1,35 @@
+{% extends "grocery_store/main.html" %}
+
+{% block "product_list" %}
+    {% include elements|add:"/search_container.html" with search_by=search_by %}
+<div class="container">
+    <h2 class="stores-header">Продукты</h2>
+
+
+    <div class="stores-cards">
+{% if products %}
+{% for product in products %}
+{% if product.in_stock %}
+      <a href="/product/{{ product.pk }}" class="stores-card">
+        <div class="stores-card-pic">
+          <img class="transition-fix" id="product-card-pic" src="{{ product.photo.url }}"
+            alt="{{ product.name }}">
+        </div>
+          <div class="product-description">
+          <div>{{ product.name }}</div>
+        <div class="store-type">{{ product.price }} ₽₽</div>
+        <div class="store-time">{{ product.weight }} г</div>
+          </div>
+
+      </a>
+{% endif %}
+{% endfor %}
+{% else %}
+        <p>Ничего не найдено</p>
+{% endif %}
+    </div>
+
+  </div>
+  {% firstof "grocery_store/elements" as elements %}
+  {% include elements|add:"/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" href="{% static 'grocery_store/css/!main.css' %}" rel="stylesheet"/>
+  <title>{{ title }}</title>
+</head>
+
+<body>
+  {% firstof "grocery_store" as home_root %}
+  {% firstof "grocery_store/elements" as elements %}
+  {% include elements|add:"/navbar.html" %}
+  {% block "product_list" %}
+  {% endblock %}
+  {% include elements|add:"/footer.html" %}
+  {% include elements|add:"/scroller.html" %}
+</body>
+
+<script src="{% static 'grocery_store/js/scroller.js' %}"></script>
+
+</html>

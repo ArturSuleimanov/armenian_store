@@ -1,0 +1,132 @@
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: var(--color-dark);
+  max-width: 100%;
+  height: 100%;
+}
+
+.footer-logo {
+  padding: 40px 0;
+}
+
+hr {
+  display: block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  border-top: 1px solid var(--color-darkergray);
+}
+
+.footer-links {
+  padding: 32px 0;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 32px;
+  flex-flow: row;
+}
+
+.footer-links-column {
+  flex-basis: 33.3333%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.footer-link {
+  padding: 8px 0;
+  color: var(--color-light);
+  font-size: 0.8125rem;
+}
+
+.footer-legal {
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.lang-selector {
+  border-radius: var(--border-radius);
+  border-color: var(--color-darkestgray);
+  color: var(--color-light);
+  font-size: 0.8rem;
+  padding: 10px 70px 10px 50px;
+  background: url(../assets/arrow-down.svg) 93% / 8% no-repeat
+    var(--color-darkestgray);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 12rem;
+}
+
+.lang-selector:focus {
+  outline: none;
+}
+
+.lang-selector-container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 24px;
+  margin-left: -16px;
+}
+
+.lang-selector-container > img {
+  position: relative;
+  left: 30px;
+}
+
+.hashtag {
+  display: inline-block;
+  font-size: medium;
+}
+
+.hashtag::before {
+  content: '#';
+  color: var(--color-main);
+}
+
+.socials-symbols {
+  display: flex;
+  gap: 10px;
+  padding-top: 6px;
+  padding-bottom: 13px;
+}
+
+.footer a {
+  color: var(--color-light);
+}
+
+.footer a:hover {
+  color: var(--color-gray);
+}
+
+.footer a:active {
+  color: var(--color-main);
+}
+
+.footer-dw-labels {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+  /* .lang-selector {
+    width: 176px;
+  } */
+}
+
+@media screen and (max-width: 576px) {
+  .footer-links {
+    flex-flow: column;
+  }
+  .footer-links-column {
+    flex-basis: 100%;
+  }
+  .footer-legal {
+    flex-flow: column nowrap;
+  }
+}

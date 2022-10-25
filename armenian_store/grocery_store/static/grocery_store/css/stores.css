@@ -1,0 +1,74 @@
+.stores-cards {
+  display: grid;  
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-bottom: 50px;
+}
+
+.stores-header {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.stores-card {  
+  text-decoration: none;
+  color: var(--color-dark);
+    border: solid  #E5E4E2 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stores-card:hover {
+  background-color: var(--color-lightergray);
+}
+
+.stores-card-pic {
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.stores-card-pic img {
+  transition: 0.3s;
+  width: 100%;
+  overflow: hidden;
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.stores-card-pic img:hover {
+  transform: scale(1.03);
+}
+
+.store-name {
+  margin-top: 0.9rem;
+}
+
+.store-type {
+  color: var(--color-darkgray);
+  font-size: 0.875rem;
+}
+
+.store-time {
+  font-size: 0.8125rem;
+}
+
+.store-name,
+.store-time,
+.store-type {
+  margin-bottom: 0.35rem;
+}
+
+@media screen and (max-width: 768px) {
+  .stores-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .stores-cards {
+    grid-template-columns: 1fr;
+  }
+}
