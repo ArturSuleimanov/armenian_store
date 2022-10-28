@@ -1,0 +1,54 @@
+#header {
+    background: white;
+    color: black;
+    box-shadow: 0 0 5px;
+}
+#header a:visited, #header a:active, #header a:link, #header button {
+    color: grey;
+}
+
+#branding h1 a:visited, #branding h1 a:active, #branding h1 a:link {
+    color: black;
+}
+
+.module caption, div.breadcrumbs {
+    background:#262626;
+}
+
+
+
+.login #header #site-name a,  .submit-row input:hover, a:link, a:visited, a:active {
+    color:#262626;
+}
+
+.submit-row input {
+    background: grey;
+}
+
+#changelist-filter li.selected a:link {
+    color:#262626;
+}
+
+.selected a:active, .selected a:visited, .selected a:link {
+    color: grey;
+}
+
+#changelist-filter {
+    background: grey;
+}
+
+:root {
+    --primary: #262626;
+    --selected-row: #C0C0C0;
+    --button-hover-bg: #262626;
+}
+
+.submit-row input.default, input[type=submit].default, {
+    background: #383838;
+}
+
+.submit-row input:hover {
+    color: grey;
+}
+
+

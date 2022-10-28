@@ -1,10 +1,12 @@
-from django.conf.urls.static import static
 from django.urls import path
-
-from armenian_store import settings
 from .views import *
 
 urlpatterns = [
     path('', ProductListPage.as_view(), name = "product_list"),
-    path('search/', SearchResultsView.as_view(), name = 'search')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('search/', SearchResultsView.as_view(), name = 'search'),
+    path('product/<int:product_id>', ProductPage.as_view(), name='product_page'),
+    path('about_us/', about_us, name = "about_us"),
+    path('contacts/', contacts, name="contacts"),
+    path('feedbacks/', feedbacks, name="feedbacks")
+]
+

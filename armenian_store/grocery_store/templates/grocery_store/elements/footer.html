@@ -1,10 +1,11 @@
+{% load static %}
 <div class="footer">
 
     <div id="scrollerUnHidePoint"></div>
 
     <div class="container">
           <div class="footer-link">
-            <a href="#" class="hashtag">ArmenianProducts</a>
+            <a href="/" class="hashtag">ArmenianProducts</a>
           </div>
 
       <hr class="footer-hr">
@@ -14,29 +15,24 @@
         <div class="footer-links-column">
 
           <div class="socials-symbols">
-            <a href="#" class="icon-link">
-              <div>
-                <img src="assets/footer/facebook.svg" alt="Вконтакте">
-              </div>
-            </a>
 
-            <a href="#" class="icon-link">
-              <div>
-                <img src="assets/footer/instagram.svg" alt="Instagram">
+
+            <a href="https://instagram.com/armenian_ecoproducts?igshid=YmMyMTA2M2Y=" class="icon-link">
+              <div style="display:flex;">
+                <img src="{% static 'grocery_store/images/footer/instagram.svg' %}" alt="Instagram">
+                <p>Instagram</p>
               </div>
             </a>
           </div>
         </div>
 
         <div class="footer-links-column">
-          <div class="footer-link"><a href="#">О нас</a></div>
-
+          <div class="footer-link"><a href="{% url 'about_us' %}">О нас</a></div>
+          <div class="footer-link"><a href="{% url 'feedbacks' %}">Отзывы</a></div>
         </div>
 
         <div class="footer-links-column">
-          <div class="footer-link"><a href="#">Все города</a></div>
-          <div class="footer-link"><a href="#">Контакты</a></div>
-
+          <div class="footer-link"><a href="{% url 'contacts' %}">Контакты</a></div>
         </div>
       </div>
 
@@ -46,7 +42,6 @@
 
       <div class="footer-legal">
         <div class="footer-link">
-          <a href="#">© 2017 Uber Technologies Inc.</a>
         </div>
       </div>
 

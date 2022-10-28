@@ -1,0 +1,30 @@
+{% extends "grocery_store/main.html" %}
+{% block "product_page" %}
+<div class="product-page">
+    <a href="{{ product.photo.url }}">
+        <img src="{{ product.photo.url }}"/>
+    </a>
+    <div class="product-info">
+        <div class="product-field main-product-field">
+            <h2><strong>{{ product.title }}</strong></h2>
+            {% if product.price_with_discount %}
+                <h4><s style="color: red;">{{ product.price }} ₽₽</s>&nbsp;&nbsp;&nbsp;{{ product.price_with_discount }} ₽₽</h4>
+            {% else %}
+                <h4>{{ product.price }} ₽₽</h4>
+            {% endif %}
+        </div>
+        {% for field, name in product_form %}
+            {% if field.data %}
+                <div class="product-field">
+                    <h3><strong>{{ name }}:</strong></h3>
+                    {% if name == "Масса" %}
+                        <p>{{ field.data }} г</p>
+                    {% else %}
+                        <p>{{ field.data|linebreaks }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

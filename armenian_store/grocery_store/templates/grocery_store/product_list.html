@@ -16,9 +16,15 @@
             alt="{{ product.name }}">
         </div>
           <div class="product-description">
-          <div>{{ product.name }}</div>
-        <div class="store-type">{{ product.price }} ₽₽</div>
+          <div>{{ product.title }}</div>
+              {% if product.price_with_discount %}
+                      <div class="store-type"><s style="color: red;">{{ product.price }} ₽₽</s>&nbsp;&nbsp;&nbsp;{{ product.price_with_discount }} ₽₽</div>
+              {% else %}
+                <div class="store-type">{{ product.price }} ₽₽</div>
+              {% endif %}
+              {% if product.weight %}
         <div class="store-time">{{ product.weight }} г</div>
+              {% endif %}
           </div>
 
       </a>
