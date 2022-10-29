@@ -3,7 +3,7 @@
 {% block "product_list" %}
     {% include elements|add:"/search_container.html" with search_by=search_by %}
 <div class="container">
-    <h2 class="stores-header">Продукты</h2>
+    <h2 class="stores-header">{{ title }} | <a href="{% url 'categories' %}">Категории</a> </h2>
 
 
     <div class="stores-cards">
