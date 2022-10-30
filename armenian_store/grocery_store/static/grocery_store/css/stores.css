@@ -72,3 +72,22 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.list-cart-form {
+    display: flex;
+    align-items: center;
+    margin: 7px;
+}
+
+#cart-amount {
+    width: 40px;
+    border-radius: 5px;
+    border-width: 1px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.product-description {
+    margin-left: 7px;
+}

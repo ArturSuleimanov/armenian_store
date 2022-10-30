@@ -10,11 +10,12 @@
       </div>
 
       <div class="nav-cabinet">
-        <a href="/admin" type="button"
-          class="nav-element button nav-button">Войти</a>
-        <a href="#" class="icon-link nav-element">
+        <a href="{% url 'cart:cart_detail' %}" class="icon-link nav-element">
+          <p>{{ cart.get_amount }} шт.</p>&nbsp|&nbsp<p>{{ cart.get_total_price }} ₽₽</p>
           <img src="{% static 'grocery_store/images/header/basket.svg' %}" alt="Корзина">
         </a>
+        <a href="/admin" type="button"
+          class="nav-element button nav-button">Войти</a>
       </div>
 
     </div>

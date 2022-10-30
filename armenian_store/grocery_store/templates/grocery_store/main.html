@@ -13,16 +13,12 @@
   {% firstof "grocery_store" as home_root %}
   {% firstof "grocery_store/elements" as elements %}
   {% include elements|add:"/navbar.html" %}
-  {% block "product_list" %}
-  {% endblock %}
-  {% block "product_page" %}
-  {% endblock %}
-  {% block "about_us" %}
-  {% endblock %}
-  {% block "contacts" %}
-  {% endblock %}
-  {% block "feedbacks" %}
-  {% endblock %}
+  <div style="min-height: 100vh;">
+    <div class="container">
+    {% block "content" %}
+    {% endblock %}
+    </div>
+  </div>
   {% include elements|add:"/footer.html" %}
   {% include elements|add:"/scroller.html" %}
 </body>

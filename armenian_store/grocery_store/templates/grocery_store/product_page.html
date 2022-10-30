@@ -1,18 +1,21 @@
 {% extends "grocery_store/main.html" %}
-{% block "product_page" %}
+{% block "content" %}
+{% load floattags %}
 <div class="product-page">
     <a href="{{ product.photo.url }}">
-        <img src="{{ product.photo.url }}"/>
+        <img id="product-page-img" src="{{ product.photo.url }}"/>
     </a>
     <div class="product-info">
         <div class="product-field main-product-field">
             <h2><strong>{{ product.title }}</strong></h2>
             {% if product.price_with_discount %}
-                <h4><s style="color: red;">{{ product.price }} ₽₽</s>&nbsp;&nbsp;&nbsp;{{ product.price_with_discount }} ₽₽</h4>
+                <h4><s style="color: red;">{{ product.price|formatted_float }} ₽₽</s>&nbsp;&nbsp;&nbsp;{{ product.price_with_discount|formatted_float }} ₽₽</h4>
             {% else %}
-                <h4>{{ product.price }} ₽₽</h4>
+                <h4>{{ product.price|formatted_float }} ₽₽</h4>
             {% endif %}
         </div>
+      {% firstof "grocery_store/elements" as elements %}
+      {% include elements|add:"/cart_add_form.html" %}
         {% for field, name in product_form %}
             {% if field.data %}
                 <div class="product-field">

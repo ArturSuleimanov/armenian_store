@@ -1,6 +1,6 @@
 {% extends "grocery_store/main.html" %}
-
-{% block "product_list" %}
+{% block "content" %}
+{% load floattags %}
     {% include elements|add:"/search_container.html" with search_by=search_by %}
 <div class="container">
     <h2 class="stores-header">{{ title }} | <a href="{% url 'categories' %}">Категории</a> </h2>
@@ -10,7 +10,8 @@
 {% if products %}
 {% for product in products %}
 {% if product.in_stock %}
-      <a href="/product/{{ product.pk }}" class="stores-card">
+        <div  class="stores-card">
+      <a href="/product/{{ product.pk }}">
         <div class="stores-card-pic">
           <img class="transition-fix" id="product-card-pic" src="{{ product.photo.url }}"
             alt="{{ product.name }}">
@@ -18,16 +19,18 @@
           <div class="product-description">
           <div>{{ product.title }}</div>
               {% if product.price_with_discount %}
-                      <div class="store-type"><s style="color: red;">{{ product.price }} ₽₽</s>&nbsp;&nbsp;&nbsp;{{ product.price_with_discount }} ₽₽</div>
+                      <div class="store-type"><s style="color: red;">{{ product.price|formatted_float }} ₽₽</s>&nbsp;&nbsp;&nbsp;{{ product.price_with_discount|formatted_float }} ₽₽</div>
               {% else %}
-                <div class="store-type">{{ product.price }} ₽₽</div>
+                <div class="store-type">{{ product.price|formatted_float }} ₽₽</div>
               {% endif %}
               {% if product.weight %}
         <div class="store-time">{{ product.weight }} г</div>
               {% endif %}
           </div>
-
       </a>
+  {% firstof "grocery_store/elements" as elements %}
+  {% include elements|add:"/cart_add_form.html" %}
+        </div>
 {% endif %}
 {% endfor %}
 {% else %}

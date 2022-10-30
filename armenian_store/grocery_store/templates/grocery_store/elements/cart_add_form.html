@@ -1,0 +1,6 @@
+{% load static %}
+<form action="{% url 'cart:cart_add' product.id %}" class="list-cart-form" method="post">
+  {{ form }}
+  <button type="submit" value="В корзину"><img src="{% static 'grocery_store/images/header/white_basket.svg' %}" alt="Корзина"></button>
+  {% csrf_token %}
+</form>

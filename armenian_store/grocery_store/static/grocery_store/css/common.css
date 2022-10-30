@@ -37,6 +37,16 @@ a {
   transition: color 0.3s;
 }
 
+a:hover {
+    color:grey;
+}
+
+input[type="submit"]:hover, a[type="button"]:hover, button[type="submit"]:hover {
+    background: grey;
+}
+
+
+
 .container {
   padding: 0 var(--container-padding-x);
   margin: auto;

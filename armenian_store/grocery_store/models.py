@@ -13,8 +13,8 @@ class Product(models.Model):
     composition = models.TextField(max_length=1024, default=None, blank=True, null=True, verbose_name='Состав')
     nutritional_value = models.TextField(max_length=512, default=None, blank=True, null=True, verbose_name='Пищевая ценность')
     weight = models.PositiveIntegerField(blank=True, null=True, verbose_name='Масса')
-    price = models.PositiveIntegerField(verbose_name='Цена')
-    price_with_discount = models.PositiveIntegerField(verbose_name='Цена со скидкой',  default=None, blank=True, null=True,)
+    price = models.DecimalField(verbose_name='Цена', max_digits=10, decimal_places=2)
+    price_with_discount = models.DecimalField(verbose_name='Цена со скидкой',  default=None, blank=True, null=True,  decimal_places=2, max_digits=10)
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
 
 

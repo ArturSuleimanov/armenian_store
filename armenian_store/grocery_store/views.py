@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
+
+from cart.forms import CartAddProductForm
 from .forms import ProductForm
 from .models import Product, Category
 from django.db.models import Q
 from django.forms.models import model_to_dict
 from itertools import chain
+from .forms import *
 
 
 # Create your views here.
@@ -19,6 +22,7 @@ class ProductListPage(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Список продуктов'
         context['search_by'] = ""
+        context['form'] = CartAddProductForm()
         return context
 
 
@@ -56,6 +60,7 @@ class SearchResultsView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = context['category'] = 'Результаты поиска'
         context['search_by'] = self.request.GET.get('search-input-main')
+        context['form'] = CartAddProductForm()
         return context
 
 
@@ -74,6 +79,7 @@ class ProductPage(ListView):
         context['product'] = product
         context['title'] = f'{product.title}'
         context['product_form'] = zip(ProductForm(data=model_to_dict(product)), ("Описание", "Состав", "Пищевая ценность", "Масса"))
+        context['form'] = CartAddProductForm()
         return context
 
 
@@ -88,7 +94,6 @@ class ShowProductByCategory(ListView):
         Обработка поискового запроса
         """
         query = self.kwargs.get('category_id')
-        print(query, " !!!!!!++++++++++++++++++++++++++")
         object_list = Product.objects.filter(category=query).order_by('title')
         return object_list
 
@@ -99,6 +104,7 @@ class ShowProductByCategory(ListView):
         category_id = self.kwargs.get('category_id')
         context = super().get_context_data(**kwargs)
         context['title'] = f'{Category.objects.get(pk=category_id)}'
+        context['form'] = CartAddProductForm()
         return context
 
 
@@ -128,3 +134,7 @@ def contacts(request):
 
 def feedbacks(request):
     return render(request, 'grocery_store/feedbacks.html', {"title": "Отзывы"})
+
+# def product_detail(request, id, slug):
+#     product = get_object_or_404(Product, id=id, slug=slug, available=True)
+#     return render(request, 'shop/product/detail.html', {'product': product})

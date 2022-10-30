@@ -19,7 +19,7 @@
 }
 
 .nav-cabinet {
-  display: flex;  
+  display: flex;
 }
 
 .nav-element {
@@ -30,3 +30,17 @@
   font-size: 0.8rem;
   font-weight: 600;
 }
+
+.icon-link {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    font-size: 90%;
+}
+
+.icon-link p {
+    line-height: 12px;
+    font-size: 100%;
+
+}
+
