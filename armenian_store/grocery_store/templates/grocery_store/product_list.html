@@ -11,7 +11,7 @@
 {% for product in products %}
 {% if product.in_stock %}
         <div  class="stores-card">
-      <a href="/product/{{ product.pk }}">
+      <a href="{% url 'product_page' product.id %}">
         <div class="stores-card-pic">
           <img class="transition-fix" id="product-card-pic" src="{{ product.photo.url }}"
             alt="{{ product.name }}">
